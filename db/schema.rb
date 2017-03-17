@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170314062242) do
+ActiveRecord::Schema.define(version: 20170317174837) do
+
+  create_table "lists", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title",        null: false
+    t.datetime "target_at"
+    t.datetime "completed_at"
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "tasks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title",                                      null: false
@@ -18,7 +27,6 @@ ActiveRecord::Schema.define(version: 20170314062242) do
     t.datetime "target_at"
     t.datetime "completed_at"
     t.boolean  "completed",                  default: false, null: false
-    t.integer  "user_id"
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
   end
